@@ -1,28 +1,28 @@
 # Organizator pentru facultate
 
-Aplicatie de consola in C pentru gestionarea sarcinilor de facultate.
+Aplicație de consolă în C pentru gestionarea sarcinilor de facultate. Codul sursă este în [`main.c`](main.c).
 
-## Functionalitati
+## Funcționalități
 
-- Adaugarea si afisarea sarcinilor.
-- Marcarea unei sarcini ca terminata sau redeschiderea ei.
-- Stergerea unei sarcini dupa numarul din lista.
-- Afisarea progresului: cate sarcini sunt terminate.
-- Salvare automata in `sarcini.txt`, dupa fiecare modificare.
-- Validarea optiunilor, a descrierilor si a fisierului incarcat.
+- Adăugarea și afișarea sarcinilor.
+- Marcarea unei sarcini ca terminată sau redeschiderea ei.
+- Ștergerea unei sarcini după numărul din listă.
+- Afișarea numărului de sarcini terminate.
+- Salvarea automată în `sarcini.txt` după fiecare modificare.
+- Validarea opțiunilor, a descrierilor și a fișierului încărcat.
 
-## Rulare in OnlineGDB
+## Rulare în OnlineGDB
 
-1. Deschide https://www.onlinegdb.com/ si selecteaza limbajul **C**.
-2. Copiaza continutul din `main.c` in editor.
-3. Selecteaza **Interactive Console** pentru introducerea datelor, apoi apasa **Run**.
-4. Introdu optiunile si descrierile in consola. Apasa Enter dupa fiecare raspuns.
+1. Deschide https://www.onlinegdb.com/ și selectează limbajul **C**.
+2. Copiază conținutul din `main.c` în editor.
+3. Selectează **Interactive Console** pentru introducerea datelor, apoi apasă **Run**.
+4. Introdu opțiunile și descrierile în consolă. Apasă Enter după fiecare răspuns.
 
-Programul creeaza `sarcini.txt` in mediul in care ruleaza. Pastrarea fisierului intre sesiuni depinde de mediul OnlineGDB; descarca separat fisierul daca vrei sa pastrezi sarcinile. Nu publica sarcini personale pe GitHub.
+Programul creează `sarcini.txt` în mediul în care rulează. Păstrarea fișierului între sesiuni depinde de mediul OnlineGDB. Descarcă fișierul separat dacă vrei să păstrezi sarcinile. Nu publica sarcini personale pe GitHub.
 
-## Rulare locala
+## Rulare locală
 
-Ai nevoie de un compilator C, de exemplu GCC:
+Din directorul proiectului, compilează și rulează programul cu un compilator C precum GCC.
 
 ```sh
 gcc -std=c11 -Wall -Wextra -Wpedantic main.c -o organizator
@@ -37,18 +37,18 @@ gcc -std=c11 -Wall -Wextra -Wpedantic main.c -o organizator
 Progres: 1 din 2 terminate.
 ```
 
-## Structura si limite
+## Structură și limite
 
-`Sarcina` grupeaza descrierea si starea unei activitati. Programul foloseste un tablou cu maximum 100 de sarcini, fiecare cu o descriere de maximum 159 de octeti. Numerele din lista se schimba dupa stergere. Diacriticele pot ocupa mai multi octeti.
+`Sarcina` grupează descrierea și starea unei activități. Programul folosește un tablou cu maximum 100 de sarcini. Fiecare descriere poate ocupa cel mult 159 de octeți. Diacriticele pot ocupa mai mulți octeți, iar numerele din listă se schimbă după ștergere.
 
-Fisierul contine cate doua randuri pentru fiecare sarcina: starea (`0` sau `1`), apoi descrierea. La salvare se foloseste un fisier temporar, inlocuind lista veche numai dupa scriere. Programul se opreste daca fisierul existent nu poate fi citit sau are format invalid.
+Fișierul conține câte două rânduri pentru fiecare sarcină. Primul conține starea (`0` sau `1`), al doilea descrierea. Programul acceptă rânduri cu terminatori LF și CRLF. La salvare, scrie mai întâi într-un fișier temporar și înlocuiește lista veche după ce scrierea reușește. Programul se oprește dacă fișierul existent nu poate fi citit sau are format invalid.
 
 ## Context
 
-Proiect de inceput, pregatit cu asistenta AI pentru studiu si dezvoltare treptata. Codul initial foloseste structuri, tablouri, functii si fisiere; urmatorul pas este intelegerea si modificarea fiecarei parti.
+Proiect de început, pregătit cu asistență AI pentru studiu și dezvoltare treptată. Codul inițial folosește structuri, tablouri, funcții și fișiere. Următorul pas este înțelegerea și modificarea fiecărei părți.
 
 ## Idei pentru versiuni viitoare
 
-- Materie si termen-limita pentru fiecare sarcina.
+- Materie și termen-limită pentru fiecare sarcină.
 - Filtrarea sarcinilor neterminate.
-- Cautare dupa cuvinte.
+- Căutare după cuvinte.
