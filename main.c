@@ -27,6 +27,13 @@ int citeste_rand(FILE *sursa, char text[], int capacitate)
         text[--lungime] = '\0';
     } else {
         c = fgetc(sursa);
+        if (c == '\r') {
+            c = fgetc(sursa);
+            if (c == '\n')
+                return 1;
+            if (c == EOF)
+                return -1;
+        }
         if (c != '\n' && c != EOF) {
             while ((c = fgetc(sursa)) != '\n' && c != EOF) { }
             return -1;
